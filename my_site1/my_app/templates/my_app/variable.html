@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django Variables</title>
+</head>
+<body>
+    <h1>
+    Variable HTML
+    </h1>
+    {% comment %} <h2>
+       The firstname is {{first_name | lower | capfirst}} and lastname is {{last_name | lower | capfirst}}
+    </h2>
+    <h2>
+       {{some_list.0}}
+     </h2>
+     <h2>
+        {{some_dict.docker}}
+      </h2>
+    </h2>
+    <h2>
+       {#some_dict.docker#}
+     </h2> {% endcomment %}
+     {% comment %} <ul>
+     {% for k,v in some_dict.items  %}
+     <li> <p>{{v}}</p></li>
+     {% endfor %}
+     </ul> {% endcomment %}
+     {% if user_loggedin %}
+     <h2>
+      Welcome back you are logged in 
+    </h2>
+     {% endif %}
+     <ul>
+      {% for num in some_list  %}
+      {% if num == 5 %}
+      <li> <p>FIVE</p></li>
+      {% else %}
+      <li> <p>{{num}}</p></li>
+      {% endif %}
+      {% endfor %}
+      </ul>
+</body>
+</html>

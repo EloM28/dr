@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Django</title>
+</head>
+<body>
+    <h1>The Retrievement</h1>
+    {% for person in patients %}
+    <h1>{{person.last_name}}</h1>
+    {% endfor %}
+</body>
+</html>

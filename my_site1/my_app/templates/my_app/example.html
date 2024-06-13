@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<h1>THIS IS INSIDE THE EXAMPLE.HTML</h1> 
+     <img src="{% static 'my_app/django1.jpg' %}" alt='django image'></img>
+    <h2>Example HTML Template Connected</h2> 
+    <h3><a href="{% url 'my_app:variable' %}"> CLICK ME TO GO TO VARIABLE</a> </h3> 
+
+{% endblock content %}
