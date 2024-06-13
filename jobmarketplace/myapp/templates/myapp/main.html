@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}JobMarketPlace{% endblock title %}</title>
+ 
+  <link rel="stylesheet" href="{% static 'myapp/css/styles.css' %}">
+</head>
+<body>
+    {% include "myapp/navbar.html" %}
+
+    {% block content %}
+    
+    {% endblock content %}
+
+    <footer class="footer">
+        <div class="footer-content">
+          <div class="quick-links">
+            <a href="#">Find Jobs</a>
+            <a href="#">Post a Job</a>
+            <a href="#">Employer Solutions</a>
+            <a href="#">Career Advice</a>
+          </div>
+          <div class="newsletter">
+            <h3>Subscribe to our Newsletter</h3>
+            <form class="newsletter-form">
+              <input type="email" id="newsletter-email" placeholder="Enter your email" required>
+              <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Job Marketplace. All rights reserved.</p>
+        </div>
+      </footer>
+    <script src="{% static 'myapp/js/script.js'%}"> </script> 
+</body>
+</html>

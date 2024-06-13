@@ -1,0 +1,24 @@
+{% extends "myapp/main.html" %}
+
+{% block content %}
+<section class="job-listings">
+    <h2>Latest Job Openings</h2>
+    <div class="job-cards">
+      {% for job in jobs %}
+      <div class="job-card">
+        <div class="job-available">
+          <span class="color-span">Available</span>
+        </div>
+        <h3>{{job.title}}</h3>
+        <p>{{job.description}}</p>
+        <p>Company : {{job.company}}</p>
+        <p>Location:{{job.location}}</p>
+        <p>Closing Date: <p>{{job.expires_at}}</p></p>
+        <a href="apply/{{job.id}}" class="apply-btn">Apply Now</a>
+        
+      </div>
+      {% endfor %}
+      
+    </div>
+  </section>
+{% endblock content %}

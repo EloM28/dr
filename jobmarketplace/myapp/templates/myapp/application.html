@@ -1,0 +1,20 @@
+{% extends "myapp/main.html" %}
+
+{% block content %}
+<section class="job-listings">
+    <h2>My Application</h2>
+    <div class="job-cards">
+      {% for app in apps %}
+      <div class="job-card">
+        <h3>{{app.job_posting.title}}</h3>
+        <p>{{app.job_posting.description}}</p>
+        <p>Company : {{app.job_posting.company}}</p>
+        <p>Location:{{app.job_posting.location}}</p>
+        <p>Closing Date: <p>{{app.job_posting.expires_at}}</p></p>
+        <a href="delete/{{app.id}}" class="apply-btn">Delete Now</a>
+      </div>
+      {% endfor %}
+      
+    </div>
+  </section>
+{% endblock content %}

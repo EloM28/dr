@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Listing</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+          <div class="logo">
+            <a href="#">Job Marketplace</a>
+          </div>
+          <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Jobs</a></li>
+            <li><a href="post.html">Employers</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+          <div class="auth-buttons">
+            <a href="login.html" class="login-btn">Login</a>
+            <a href="signup.html" class="signup-btn">Sign Up</a>
+          </div>
+        </nav>
+      </header>
+
+     <div class="hero-carousel">
+        <div class="hero-slide">
+          <img src="img1.jpeg" alt="Image 1">
+          <div class="hero-text">
+            <h2>Discover Your Dream Job</h2>
+            <p>Browse thousands of job listings and find the perfect fit.</p>
+          </div>
+        </div>
+        <div class="hero-slide">
+          <img src="img2.jpeg" alt="Image 2">
+          <div class="hero-text">
+            <h2>Post a Job</h2>
+            <p>Attract top talent and grow your business.</p>
+          </div>
+        </div>
+        <div class="hero-slide">
+          <img src="img1.jpeg" alt="Image 3">
+          <div class="hero-text">
+            <h2>Find Your Dream Job Today</h2>
+          <p>Join our vibrant job marketplace and connect with top employers.</p>
+          </div>
+        </div>
+        <div class="hero-slide">
+          <img src="img2.jpeg" alt="Image 4">
+          <div class="hero-text">
+            <h2>Employer Solutions</h2>
+            <p>Find the right tools to manage your hiring process.</p>
+          </div>
+        </div>
+      </div>
+      <section class="job-listings">
+        <h2>Latest Job Openings</h2>
+        <div class="job-cards">
+          <div class="job-card">
+            <h3>Software Engineer</h3>
+            <p>ABC Company</p>
+            <p>New York, NY</p>
+            <p>Closing Date: June 30, 2024</p>
+            <a href="#" class="apply-btn">Apply Now</a>
+          </div>
+          <div class="job-card">
+            <h3>Marketing Manager</h3>
+            <p>XYZ Corporation</p>
+            <p>Los Angeles, CA</p>
+            <p>Closing Date: July 15, 2024</p>
+            <a href="#" class="apply-btn">Apply Now</a>
+          </div>
+          <div class="job-card">
+            <h3>Graphic Designer</h3>
+            <p>Acme Inc.</p>
+            <p>Chicago, IL</p>
+            <p>Closing Date: August 1, 2024</p>
+            <a href="#" class="apply-btn">Apply Now</a>
+          </div>
+          <div class="job-card">
+            <h3>Product Manager</h3>
+            <p>Tech Solutions</p>
+            <p>Seattle, WA</p>
+            <p>Closing Date: September 1, 2024</p>
+            <a href="#" class="apply-btn">Apply Now</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="container">
+        <div class="about-section">
+          <h2>About Our Job Marketplace</h2>
+          <p>Welcome to our job marketplace, where we connect talented individuals with leading companies in various industries. Our platform offers a wide range of job opportunities, from entry-level positions to senior-level roles, catering to diverse skill sets and career aspirations.</p>
+          <p>Whether you're a job seeker looking for your next career move or an employer seeking top-notch talent, our job marketplace provides a seamless and efficient way to find the perfect match. Explore our extensive listings, post your own job ads, and take advantage of our tailored job-matching algorithms to streamline the recruitment process.</p>
+        </div>
+        <div class="contact-section">
+          <h2>Get in Touch</h2>
+          <form class="contact-form">
+            <div class="form-group">
+              <input type="text" id="name" name="name" placeholder="Name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" id="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+              <textarea id="message" name="message" rows="3" placeholder="Message" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send</button>
+          </form>
+        </div>
+      </div>
+      <footer class="footer">
+        <div class="footer-content">
+          <div class="quick-links">
+            <a href="#">Find Jobs</a>
+            <a href="#">Post a Job</a>
+            <a href="#">Employer Solutions</a>
+            <a href="#">Career Advice</a>
+          </div>
+          <div class="newsletter">
+            <h3>Subscribe to our Newsletter</h3>
+            <form class="newsletter-form">
+              <input type="email" id="newsletter-email" placeholder="Enter your email" required>
+              <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Job Marketplace. All rights reserved.</p>
+        </div>
+      </footer>
+</body>
+
+<script>
+    const slides = document.querySelectorAll('.hero-slide');
+let currentSlide = 0;
+
+function showSlide(n) {
+  slides[currentSlide].classList.remove('active');
+  currentSlide = (n + slides.length) % slides.length;
+  slides[currentSlide].classList.add('active');
+}
+
+function nextSlide() {
+  showSlide(currentSlide + 1);
+}
+
+setInterval(nextSlide, 5000); 
+</script>
+
+</html>

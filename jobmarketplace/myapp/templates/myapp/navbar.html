@@ -1,0 +1,29 @@
+{% load static %}
+
+<header>
+    <nav>
+      <div class="logo">
+        <a href="#">Job Marketplace</a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="#about-us">About</a></li>
+        <li><a href="{% url 'jobslist' %}">Jobs</a></li>
+        <li><a href="{% url 'publish' %}">Employers</a></li>
+        <li><a href="#about-us">Contact</a></li>
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'myapplication' %}">My Application</a></li>
+        {% endif%}
+      </ul>
+      
+                
+      <div class="auth-buttons">
+      {% if user.is_authenticated %}
+       <a href="{% url 'logout' %}" class="signup-btn">Logout</a>
+       {% else %}
+        <a href="{% url 'login' %}" class="login-btn">Login</a>
+        <a href="{% url 'signup' %}" class="signup-btn">Sign Up</a>
+      </div>
+      {% endif %}
+    </nav>
+  </header>
