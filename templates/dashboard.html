@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tableau de Bord</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="d-flex align-items-center justify-content-center vh-100"
+    style="background-color: #f8f9fa"
+  >
+    <div class="container text-center">
+      <h2>Bienvenue sur votre Tableau de Bord</h2>
+      <p id="user-info"></p>
+      <button class="btn btn-danger"><a href="{% url 'logout' %}">Se déconnecter</a></button>
+    </div>
+
+    <script>
+      // Vérifier si un utilisateur est connecté
+      // let token = localStorage.getItem("access_token");
+      // if (!token) {
+      //   window.location.href = "/"; // Redirection si non connecté
+      // } else {
+      //   document.getElementById("user-info").innerText = "Vous êtes connecté !";
+      // }
+
+      // function logout() {
+      //   localStorage.removeItem("access_token");
+      //   localStorage.removeItem("refresh_token");
+      //   window.location.href = "login.html"; // Retour à la connexion
+      // }
+    </script>
+  </body>
+</html>
