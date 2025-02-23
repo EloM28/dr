@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
+
 from pathlib import Path
 from datetime import timedelta
 import os
@@ -39,11 +40,11 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "docteur_app",
-
     "rest_framework",
-    "rest_framework.authtoken",
     "rest_framework_simplejwt",
+    "rest_framework.authtoken",
     'drf_yasg',
+    
 ]
 
 MIDDLEWARE = [
@@ -57,7 +58,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "Tumeur.urls"
-
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework.authentication.SessionAuthentication",
@@ -73,6 +73,7 @@ SIMPLE_JWT = {
     "SIGNING_KEY": SECRET_KEY,
     "AUTH_HEADER_TYPES": ("Bearer",),# "Bearer <Token>"   
 }
+
 
 TEMPLATES = [
     {
