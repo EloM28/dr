@@ -151,11 +151,14 @@
             placeholder="Password"
           />
         </div>
-        <button class="btn mt-3">Login</button>
+        <button class="btn mt-3">Se connecter</button>
       </form>
       <div class="text-center fs-6">
-        <a href="#">Forget password?</a> or
-        <a href="{% url 'register' %}">Sign up</a>
+        <!-- <a href="#">Forget password?</a> or -->
+        <p>
+          Pas de compte?
+          <a href="{% url 'register' %}">S'inscrire</a>
+        </p>
       </div>
     </div>
   </body>
