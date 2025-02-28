@@ -108,16 +108,16 @@ class DashboardView(LoginRequiredMixin, View):
                 return render(request, 'dashboard.html', {"error": "Unauthorized access"}, status=status.HTTP_403_FORBIDDEN)
 
             request_data = {
-            "worst area": request.data.get('worst_area'),
-            "worst concave points": request.data.get('worst_concave_points'),
-            "mean concave points": request.data.get('mean_concave_points'),
-            "worst radius": request.data.get('worst_radius'),
-            "mean concavity": request.data.get('mean_concavity'),
-            "worst perimeter": request.data.get('worst_perimeter'),
-            "mean perimeter": request.data.get('mean_perimeter'),
-            "mean radius": request.data.get('mean_radius'),
-            "mean area": request.data.get('mean_area'),
-            "worst concavity": request.data.get('worst_concavity')
+            "worst area": request.POST.get('worst_area'),
+            "worst concave points": request.POST.get('worst_concave_points'),
+            "mean concave points": request.POST.get('mean_concave_points'),
+            "worst radius": request.POST.get('worst_radius'),
+            "mean concavity": request.POST.get('mean_concavity'),
+            "worst perimeter": request.POST.get('worst_perimeter'),
+            "mean perimeter": request.POST.get('mean_perimeter'),
+            "mean radius": request.POST.get('mean_radius'),
+            "mean area": request.POST.get('mean_area'),
+            "worst concavity": request.POST.get('worst_concavity')
             }
             data = {'features' : request_data}
             
@@ -193,7 +193,7 @@ class DashboardView(LoginRequiredMixin, View):
                     ]
                 })
 
-            return render(request, 'dashboard.html', response, status=status.HTTP_200_OK)
+            return render(request, 'dashboard.html', {"data" : response}, status=status.HTTP_200_OK)
 
         except Exception as e:
             return render(request, 'dashboard.html',{
