@@ -104,23 +104,23 @@ class DashboardView(LoginRequiredMixin, View):
 
         try:
             current_user = request.user
+
             if not current_user.is_active:
                 return render(request, 'dashboard.html', {"error": "Unauthorized access"}, status=status.HTTP_403_FORBIDDEN)
-
+        
             request_data = {
-            "worst area": request.POST.get('worst_area'),
-            "worst concave points": request.POST.get('worst_concave_points'),
-            "mean concave points": request.POST.get('mean_concave_points'),
-            "worst radius": request.POST.get('worst_radius'),
-            "mean concavity": request.POST.get('mean_concavity'),
-            "worst perimeter": request.POST.get('worst_perimeter'),
-            "mean perimeter": request.POST.get('mean_perimeter'),
-            "mean radius": request.POST.get('mean_radius'),
-            "mean area": request.POST.get('mean_area'),
-            "worst concavity": request.POST.get('worst_concavity')
+            "worst area": float(request.POST.get('worst_area')),
+            "worst concave points": float(request.POST.get('worst_concave_points')),
+            "mean concave points": float(request.POST.get('mean_concave_points')),
+            "worst radius": float(request.POST.get('worst_radius')),
+            "mean concavity": float(request.POST.get('mean_concavity')),
+            "worst perimeter": float(request.POST.get('worst_perimeter')),
+            "mean perimeter": float(request.POST.get('mean_perimeter')),
+            "mean radius": float(request.POST.get('mean_radius')),
+            "mean area": float(request.POST.get('mean_area')),
+            "worst concavity": float(request.POST.get('worst_concavity'))
             }
             data = {'features' : request_data}
-            
             # Handle dictionary input format
             if not isinstance(data, dict) or 'features' not in data:
                 return Response({
@@ -150,13 +150,16 @@ class DashboardView(LoginRequiredMixin, View):
             features_list = [features_dict[feature] for feature in REQUIRED_FEATURES]
 
             # Validate numerical values
+
             if not all(isinstance(x, (int, float)) for x in features_list):
                 return render(request, 'dashboard.html',{
                     "error": "Invalid feature values",
                     "message": "All features must be numerical values"
                 }, status=status.HTTP_400_BAD_REQUEST)
 
+
             # Make prediction
+
             input_data = np.array(features_list).reshape(1, -1)
             scaled_data = scaler_top.transform(input_data)
             prediction = final_model.predict(scaled_data)
