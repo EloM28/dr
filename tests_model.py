@@ -3,13 +3,13 @@ import requests
 import json
 
 # API configuration
-BASE_URL = "http://localhost:8000"
+BASE_URL = "http://127.0.0.1:8000"
 
 def login():
     """Get authentication token"""
     login_data =json.dumps( {
-        "userName": "diva@gmail.com",
-        "password": "AZERTY123456"
+        "userName": "admin1@gmail.com",
+        "password": "admin1111"
     })
     headers = {
         "Content-Type": "application/json"
