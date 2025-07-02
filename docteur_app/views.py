@@ -10,15 +10,15 @@ from rest_framework.views import APIView
 from .tokens import create_jwt_pair_for_user
 from rest_framework.response import Response
 from django.views.generic.edit import View
-from rest_framework import status
+from rest_framework import status, viewsets
+from rest_framework.decorators import action
 import logging
 from rest_framework.permissions import AllowAny
 
-from .serializers import UserRegistrationSerializer
+from .serializers import UserRegistrationSerializer, UserSerializer
+from .models import User
 from django.contrib.auth import authenticate,login, logout
 from django.middleware.csrf import get_token
-
-
 
 
 class UserRegistrationView(APIView):
@@ -60,9 +60,24 @@ class LoginAPIView(APIView):
     def get(self, request):
         content = {"user": str(request.user), 
                    "auth": str(request.auth)}
-        
         return Response(data=content, status=status.HTTP_200_OK)
     
+
+class ChangePasswordAPIViewset(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = []
+
+
+    @action(detail=True, methods=['put'], url_path='change-pass')
+    def change_pass(self, request, pk=None):
+        user = self.get_object()
+        password = request.data.get('password')
+        user.set_password(password)
+        user.save()
+        return Response(data="Done!", status=status.HTTP_200_OK)
+    
+
 class LoginView(APIView):
     def get(self, request):
         return render(request, 'login.html')
