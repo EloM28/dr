@@ -1,11 +1,15 @@
 from .import views
-from django.urls import path
-from .views import UserRegistrationView, LoginView, DashboardView, LogoutView, PredictView, PredictAPIView, LoginAPIView
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views import UserRegistrationView, LoginView, ChangePasswordAPIViewset, DashboardView, LogoutView, PredictView, PredictAPIView, LoginAPIView
+
+router = DefaultRouter()
+
+router.register(r'user', ChangePasswordAPIViewset, basename='change_pass')
 
 
 
-
-urlpatterns = [
+urlpatterns = router.urls + [
     # path("",DashboardView.as_view(), name="home"),
     
     path("register/", UserRegistrationView.as_view(), name='register'),
@@ -18,6 +22,5 @@ urlpatterns = [
     
     # API Routes
     
-    path("api/login/", LoginAPIView.as_view(), name='api_login'),
-    
+    path("api/login/", LoginAPIView.as_view(), name='api_login'),    
 ]
