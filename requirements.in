@@ -20,7 +20,7 @@ PyYAML
 referencing
 requests
 rpds-py
-scikit-learn
+# scikit-learn
 scipy
 sqlparse
 swagger-spec-validator
