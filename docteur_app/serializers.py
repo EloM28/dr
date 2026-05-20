@@ -20,7 +20,7 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
         email_exists = User.objects.filter(email=attrs['email']).exists()
         print(f'user::{email_exists}')
         if email_exists:
-            raise serializers.ValidationError("Oooops l'email existe déjà")
+            raise serializers.ValidationError("Email existe déjà")
         return attrs
 
     # def create(self, validated_data):
@@ -36,6 +36,7 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
             password=validated_data['password'],
             username=validated_data['username']
         )
+        print(f'user_created', user)
         Token.objects.create(user=user)
         return user
     
